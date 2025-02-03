@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[姓名] - Academic Profile</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --text: #333;
+            --bg: #f8f9fa;
+            --padding: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lora', serif;
+        }
+
+        body {
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        /* 导航栏 */
+        .navbar {
+            padding: 1rem 5%;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.97);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* 主体内容 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--padding);
+        }
+
+        /* 个人信息 */
+        .profile-header {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid var(--accent);
+        }
+
+        /* 学术内容 */
+        .publication-item {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .research-interest {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #e8f4fd;
+            border-radius: 20px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links { flex-wrap: wrap; }
+            .container { padding: 1rem; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#research">Research</a>
+            <a href="#publications">Publications</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 个人信息 -->
+        <header class="profile-header">
+            <img src="[照片URL]" alt="Profile" class="profile-photo">
+            <h1>[姓名]</h1>
+            <p>[职称]<br>[所属机构]</p>
+            <div style="margin: 1rem 0;">
+                <a href="[Google Scholar]" style="color: var(--accent); text-decoration: none;">Google Scholar</a> •
+                <a href="[ORCID]" style="color: var(--accent); text-decoration: none;">ORCID</a> •
+                <a href="[CV]" style="color: var(--accent); text-decoration: none;">Download CV</a>
+            </div>
+        </header>
+
+        <!-- 研究领域 -->
+        <section id="research">
+            <h2>Research Interests</h2>
+            <div style="margin: 1rem 0;">
+                <span class="research-interest">Machine Learning</span>
+                <span class="research-interest">Computational Biology</span>
+                <!-- 添加更多领域 -->
+            </div>
+        </section>
+
+        <!-- 论文发表 -->
+        <section id="publications" style="margin-top: 3rem;">
+            <h2>Selected Publications</h2>
+            <div class="publication-item">
+                <h3>Paper Title (2023)</h3>
+                <p><em>Journal Name</em>, vol. 1, pp. 1-10</p>
+                <p>Authors: [Your Name], Co-Author</p>
+                <a href="#" style="color: var(--accent);">Full Text</a> • 
+                <a href="#" style="color: var(--accent);">BibTeX</a>
+            </div>
+            <!-- 添加更多论文 -->
+        </section>
+
+        <!-- 教学经历 -->
+        <section id="teaching" style="margin-top: 3rem;">
+            <h2>Teaching</h2>
+            <div style="margin: 1rem 0;">
+                <h3>Advanced Machine Learning (Spring 2023)</h3>
+                <p>Graduate-level course covering deep learning fundamentals</p>
+            </div>
+        </section>
+
+        <!-- 联系方式 -->
+        <section id="contact" style="margin-top: 3rem;">
+            <h2>Contact</h2>
+            <p>📧 [email@university.edu]<br>
+            📍 [实验室地址]<br>
+            🔗 <a href="[个人网站]" style="color: var(--accent);">个人实验室网站</a></p>
+        </section>
+    </div>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 打印优化
+        window.addEventListener('beforeprint', () => {
+            document.querySelector('.navbar').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
